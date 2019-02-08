@@ -1,0 +1,18 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+  server:
+    build: .
+    environment: 
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+    ports:
+      - "8080:8080"
+    restart: 
+      always
+    depends_on:
+      - "postgres"

@@ -1,0 +1,6 @@
+sudo: required
+services:
+  - docker
+
+after_success:
+  - docker build -t sunycatmsk/godotest ./godotest
