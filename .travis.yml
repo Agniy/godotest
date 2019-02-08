@@ -2,5 +2,11 @@ sudo: required
 services:
   - docker
 
+before_install:
+  - docker build -t sunycatmsk/go-test -f ./Dockerfile.dev .
+
+script:
+  - docker run sunycatmsk/go-test
+
 after_success:
   - docker build -t sunycatmsk/godotest ./godotest

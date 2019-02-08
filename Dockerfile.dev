@@ -1,3 +1,4 @@
-FROM golang:alpine as builder
+FROM golang:alpine
 WORKDIR /go/src/app
 COPY . .
+CMD ["go","test","main_test.go"]
